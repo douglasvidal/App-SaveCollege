@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <script>
+        const alunoUm = {
+            nome: "Goku da Silva",
+            altura: 1.80, 
+            idade: 26, 
+            sexo: "Masculino",
+            sala: 101,
+            matematica: 5.5
+        }
+        const alunoDois = {
+            nome: "Vegeta dos Santos",
+            altura: 1.65, 
+            idade: 26, 
+            sexo: "Masculino",
+            sala: 101,
+            matematica: 8.5
+        }
+        const alunoTres = {
+            nome: "Picollo de Andrade",
+            altura: 1.95, 
+            idade: 10, 
+            sexo: "Masculino",
+            sala: 101,
+            matematica: 10.0
+        }
+        const alunoQuatro = {
+            nome: "Kuririn Ronaldo",
+            altura: 1.45, 
+            idade: 26, 
+            sexo: "Masculino",
+            sala: 101,
+            matematica: 7.5
+        }
+        const alunoCinco = {
+            nome: "Yancha",
+            altura: 1.75, 
+            idade: 30, 
+            sexo: "Masculino",
+            sala: 101,
+            matematica: 7.0
+        }
+        
+        const alunos = []
+        alunos.push(alunoUm)
+        alunos.push(alunoDois)
+        alunos.push(alunoTres)
+        alunos.push(alunoQuatro)
+        alunos.push(alunoCinco)
+        
+        imprimeAlunos(alunos)
+        
+        mediaSala(alunos)
+        
+        alunoAprovadoOuReprovado(alunos)
+        
+        function imprimeAlunos(alunos) {
+            alunos.forEach(aluno => console.log(JSON.stringify(aluno)))            
+        }
+        
+        function mediaSala(alunos) {
+            
+            let notas = alunos.map(aluno => aluno.matematica)
+            let alunosNotasTotal = notas.reduce((acumulador, valorAtual) => acumulador + valorAtual )
+            const alunosQuantidade = notas.length
+            let mediaAlunos = alunosNotasTotal / alunosQuantidade
+    
+            console.log(`A média da sala é ${mediaAlunos}`) 
+
+        }
+
+        function alunoAprovadoOuReprovado(alunos) {
+            alunos.forEach(aluno => {
+                let resultado = 'aprovado'
+                if (aluno.matematica < 7) {
+                    resultado = 'reprovado'  
+                } 
+                console.log(`Aluno "${aluno.nome}" esta ${resultado}`)
+            })    
+        }
+
+    </script>
+</body>
+</html>
